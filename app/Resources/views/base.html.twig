@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+		 <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>
+		
+					{% block title %}Welcome!{% endblock %}
+		
+		</title>
+						       <!-- <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />-->
+
+				{% block stylesheets %}
+				        <link rel="stylesheet" type="text/css"  href="{{ asset('css/bootstrap.min.css') }}" />
+
+				{% endblock %}
+    </head>
+    <body>
+	
+		
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Acceuil</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="#">Articles</a></li>
+        <li><a href="#">Villes</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Restaurants <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Ajouter</a></li>
+            <li><a href="#">Modifier</a></li>
+           
+          </ul>
+        </li>
+
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+
+       
+            <li>
+			    <section class="navbar-form navbar-left">					
+							{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+							    <div class="form-group" >
+									   <div class="btn btn-info" > Login As : {{app.user.username}}	</div>				
+								</div>			
+							        <div class="form-group">							
+										<a title="logout" href="{{path('fos_user_security_logout') }}" class="btn btn-primary btn-flat">Deconnexion</a>
+							       </div>
+						    {%else%}
+							
+							 {% block fos_user_content %}
+				
+				             {% endblock%}
+						
+							{% endif %}	
+				</section>
+			</li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+&nbsp; &nbsp;
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="btn-group">
+  <button type="button" class="btn btn-warning" data-toggle="dropdown">
+    Ville<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">AGADIR</a></li>
+        <li><a href="#">MARRAKECH</a></li>
+                <li><a href="#">CASABLANCA</a></li>
+
+  </ul>
+</div>
+&nbsp;&nbsp;
+
+
+<div class="container">
+  <div class="row">
+        <div class="col-md-3" id="leftCol">
+                
+        <div class="well"> 
+                <ul class="nav nav-stacked" id="sidebar">
+                  <li><a href="#sec1">AGADIR</a></li>
+                  <li><a href="#sec2">CASABLANCA</a></li>
+                  <li><a href="#sec3">MARRAKECH</a></li>
+                  <li><a href="#sec4">TANGER</a></li>
+                  <li><a href="#sec2">ESSAOUIRA</a></li>
+                  <li><a href="#sec3">FES</a></li>
+                </ul>
+          </div>
+
+          </div>  
+		&nbsp;&nbsp;
+		
+			{% block body %}
+			
+			{% endblock %}
+				 <script src="asset('js/jquery-1.10.2.min.js')"></script>
+				<script src="asset('js/bootstrap.min.js')"></script>
+			{% block javascripts %}
+						
+
+			{% endblock %}
+    </body>
+</html>

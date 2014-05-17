@@ -1,0 +1,15 @@
+annuaire_resto_homepage:
+    pattern: /hello/{name}
+    defaults: { _controller: AnnuaireRestoBundle:Default:index }
+resto_add:
+    pattern: /add
+    defaults: { _controller: AnnuaireRestoBundle:Resto:add } 
+resto_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: AnnuaireRestoBundle:Resto:delete  }
+resto_update:
+    pattern: /update/{id}
+    defaults: { _controller: AnnuaireRestoBundle:Resto:update } 
+resto_show:
+    pattern: /show/{id}
+    defaults: { _controller: AnnuaireRestoBundle:Resto:show } 

@@ -1,0 +1,17 @@
+imports:
+    - { resource: "@AnnuaireUserBundle/Resources/Config/security.yml" }
+security:
+    encoders:
+        Annuaire\UserBundle\Entity\User: sha512
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registring, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user, roles: ROLE_ADMIN }
+        - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
+        - { path: ^/resto/[^show], roles: ROLE_USER }
+        

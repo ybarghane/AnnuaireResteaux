@@ -1,0 +1,113 @@
+{% extends "AnnuaireRestoBundle::layout.html.twig" %}
+
+
+{% block title %}
+				{{ parent()}} - Home
+{% endblock %}
+{% block stylesheets %}
+				       {{ parent() }}
+{% endblock %}
+
+{% block body %}
+			   <h1 align="center">Les restaurants les plus populaires</h1>
+				<div class="col-md-9">
+				{% for resto in restos %}
+						<div class="media">
+						  <a class="pull-left" href="#">
+						  {%if resto.image is not null %}
+							<img class="media-object" src="{{asset('uploads/img/')~resto.image.url}}" alt="facebook" width=120px height=90px>
+							{%else%}
+									<img class="media-object"  alt="facebook" width=120px height=90px>
+							{%endif%}
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">{{resto.nom}}</h4>
+							<address>
+						  <strong>{{resto.ville}}</strong><br>
+						  {{resto.article}}
+						  <br>
+						</address>
+
+						</div>
+						</div>
+               {%endfor%}
+
+						<div class="media">
+						  <a class="pull-left" href="#">
+							<img class="media-object" src="{{asset('images/6.JPG')}}" alt="facebook" width=120px height=90px>
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">PARADIS PLAGE RESORT</h4>
+							<address>
+						  <strong>Agadir</strong><br>
+						  Imi Ouaddar, km 26, route d'Essaouira - Cuisine méditerranéenne
+						<br>
+						</address>
+
+						</div>
+						</div>
+
+						<div class="media">
+						  <a class="pull-left" href="#">
+							<img class="media-object" src="{{asset('images/9.JPG')}}" alt="facebook" width=120px height=90px>
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">AL FASSIA</h4>
+							<address>
+						  <strong>Marrakech</strong><br>
+						55, boulevard Zerktouni - Résidence Tayeb 1er - Marrakech
+						Cuisine marocaine traditionnelle<br>
+						</address>
+
+						</div>
+						</div>
+
+						<div class="media">
+						  <a class="pull-left" href="#">
+							<img class="media-object" src="{{asset('images/2.JPG')}}" alt="facebook" width=120px height=90px>
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">L'ANNEXE</h4>
+							<address>
+						  <strong>Marrakech</strong><br>
+						14, rue Moulay Ali - Marrakech
+						Cuisine française<br>
+						</address>
+
+						</div>
+						</div>
+
+
+
+						<div class="media">
+						  <a class="pull-left" href="#">
+							<img class="media-object" src="{{asset('images/3.JPG')}}" alt="facebook" width=120px height=90px>
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">ARABESQUE</h4>
+							<address>
+						  <strong>Casablanca</strong><br>
+						Rue Sidi Belyout - Casablanca
+						Bistrot<br>
+						</address>
+
+						</div>
+						</div>
+
+						<div class="media">
+						  <a class="pull-left" href="#">
+							<img class="media-object" src="{{asset('images/8.JPG')}}" alt="facebook" width=120px height=90px>
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">ASIA GARDEN</h4>
+							<address>
+						  <strong>Casablanca</strong><br>
+						26, rue Ahmed El Mokri - Casablanca
+						Cuisine asiatique<br>
+						</address>
+
+						</div>
+						</div>
+
+				</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<div class="col-md-9">
+
+     <div>
+			{{form_errors(form)}}
+     </div>
+	 
+	<form action={{path('resto_add')}} method="POST" {{ form_enctype(form) }}>
+	 
+	 {{ form_widget(form.nom) }}
+	<br/>
+	 {{ form_label(form.ville," Ville : ")}} {{ form_widget(form.ville) }}
+	<br/><br/>
+	{{ form_label(form.article," Article : ")}}  {{ form_widget(form.article) }}
+	<br/>
+	{{ form_widget(form.image) }}
+	<br/>
+	<input type="submit" class="btn btn-primary" />
+	
+	{{ form_rest(form) }}
+	</form>
+</div>	
+	<script type="text/javascript" src="{{ asset('js/jquery-1.9.1.js') }}"></script>
+</div>

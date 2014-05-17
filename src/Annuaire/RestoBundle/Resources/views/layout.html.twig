@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+				{{ parent()}}
+{% endblock %}
+{% block stylesheets %}
+				        <link rel="stylesheet" type="text/css"  href="{{ asset('css/bootstrap.css') }}" />
+
+{% endblock %}
+				{% block fos_user_content %}
+						 {% include "AnnuaireRestoBundle:Security:login.html.twig" %}
+				{% endblock%}
+
+{% block body %}
+			   
+{% endblock %}

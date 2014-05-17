@@ -1,0 +1,21 @@
+{% extends "AnnuaireRestoBundle::layout.html.twig" %}
+
+{% block title %}
+				{{ parent()}} - Add Resto
+{% endblock %}
+{% block stylesheets %}
+				       {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+			   {% include "AnnuaireRestoBundle:Resto:form.html.twig" %}
+				<p> 
+					 <a href="{{ path('home') }}" class="btn"> 
+						  <i class="icon-chevron-left"></i>Home
+					 </a>
+			   </p>
+{% endblock %}
+
+
+	

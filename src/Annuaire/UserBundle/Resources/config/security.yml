@@ -1,0 +1,33 @@
+security:
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: .*
+            anonymous: ~
+            #security: true
+            form_login:
+                login_path: /
+                check_path: fos_user_security_check
+                provider: fos_userbundle
+            logout:
+                path: fos_user_security_logout
+                target: /
+            remember_me:
+                key: %secret%
+        secured_area:
+            pattern:    ^.*
+            oauth:
+                resource_owners:
+                    facebook:      /
+                login_path:        /
+                failure_path:      /demo/secured/login
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+
+        # Turn on anonymous for testings need.
+            anonymous: ~

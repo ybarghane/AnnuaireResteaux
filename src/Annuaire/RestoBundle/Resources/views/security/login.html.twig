@@ -1,0 +1,22 @@
+{% block fos_user_content %}
+
+		
+		
+			<form action="{{ path('fos_user_security_check') }}" method="post"  class="navbar-form navbar-left">
+					<div class="form-group"> 
+							<input class="form-control" name="_username" id="username" type="text" placeholder="Votre Nom" required="" autofocus="">
+					</div>
+					<div class="form-group">
+							<input class="form-control" name="_password" id="password" type="password" placeholder="Votre Mot de Passe" required="true">
+					</div>
+					<button class="btn btn-primary" type="submit">Connexion</button>
+            </form>
+		
+		
+		
+{% endblock %}
+
+
+
+
+						             	

@@ -1,0 +1,7 @@
+parameters:
+#    annuaire_resto.example.class: Annuaire\RestoBundle\Example
+
+services:
+#    annuaire_resto.example:
+#        class: %annuaire_resto.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
